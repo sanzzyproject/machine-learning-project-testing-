@@ -22,3 +22,27 @@ The project follows a modular structure for maintainability:
 ├── src/                # Training Pipeline & Preprocessing
 ├── Dockerfile          # Container Configuration
 └── requirements.txt    # Dependencies
+
+##INSTALLATION
+
+git clone [https://github.com/YOUR_USERNAME/churn-guard.git](https://github.com/YOUR_USERNAME/churn-guard.git)
+cd churn-guard
+pip install -r requirements.txt
+
+##Train the Model
+This script processes the raw data, trains the XGBoost model, and saves the artifact to models/.
+
+python src/train.py
+
+
+##Run the API (Locally)
+Launch the REST API server:
+
+uvicorn api.main:app --reload
+
+
+##Run with Docker 🐳
+Build and run the containerized application:
+
+docker build -t churn-guard .
+docker run -p 8000:8000 churn-guard
